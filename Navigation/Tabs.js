@@ -14,6 +14,7 @@ const Tabs = () => {
         tabBarStyle: [
           {
             display: "flex",
+            backgroundColor: "#2B2730",
           },
           null,
         ],
@@ -27,7 +28,7 @@ const Tabs = () => {
             <Icon
               name="shapes"
               size={32}
-              style={{ color: focused ? "#BC7AF9" : "#DFDFDE" }}
+              style={{ color: focused ? "#9288F8" : "#DFDFDE" }}
             />
           ),
           headerShown: false,
@@ -41,7 +42,7 @@ const Tabs = () => {
             <Icon
               name="person-sharp"
               size={32}
-              style={{ color: focused ? "#BC7AF9" : "#DFDFDE" }}
+              style={{ color: focused ? "#9288F8" : "#DFDFDE" }}
             />
           ),
           headerShown: false,
