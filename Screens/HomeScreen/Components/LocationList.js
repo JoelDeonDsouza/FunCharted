@@ -5,7 +5,7 @@ import { styles } from "../styles";
 const LocationList = ({ item }) => {
   return (
     <View style={styles.searchedMostConatiner}>
-      <Text style={styles.headingText}>Filter Location's</Text>
+      <Text style={styles.headingText}>Discover City Treasures</Text>
       <FlatList
         horizontal
         data={item}

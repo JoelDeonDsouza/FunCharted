@@ -1,6 +1,9 @@
 import { StyleSheet, Dimensions } from "react-native";
 const { height, width } = Dimensions.get("screen");
 
+const WIDTH = width * 0.74;
+const HEIGHT = WIDTH * 1.7;
+
 export const styles = StyleSheet.create({
   homeConatiner: {
     flex: 1,
@@ -21,10 +24,10 @@ export const styles = StyleSheet.create({
     fontWeight: "800",
     color: "#000000",
   },
-  addIconContainer:{
+  addIconContainer: {
     width: 40,
     height: 40,
-    backgroundColor:"#F56A79",
+    backgroundColor: "#F56A79",
     borderRadius: width / 1,
     justifyContent: "center",
     alignItems: "center",
@@ -44,10 +47,10 @@ export const styles = StyleSheet.create({
     borderRadius: width / 1,
     marginBottom: height / 120,
   },
-  imgContainer:{
+  imgContainer: {
     width: 60,
     height: 60,
-    backgroundColor:"#EEEEEE",
+    backgroundColor: "#EEEEEE",
     borderRadius: width / 1,
     justifyContent: "center",
     alignContent: "center",
@@ -65,5 +68,51 @@ export const styles = StyleSheet.create({
     color: "#000000",
     fontWeight: "700",
     textAlign: "center",
+  },
+  // Header Data container //
+  title: {
+    fontSize: 28,
+    fontWeight: "900",
+    textTransform: "uppercase",
+    letterSpacing: -1,
+    color: "#374259",
+  },
+  location: {
+    fontSize: 14,
+    color: "#000000",
+    fontWeight: "700",
+    textAlign: "center",
+  },
+  date: {
+    fontSize: 14,
+    color: "#000000",
+    fontWeight: "700",
+    textAlign: "center",
+  },
+  itemContainer: {
+    height: 70,
+    padding: 10 * 2,
+  },
+  itemContainerRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  overflowContainer: {
+    height: 70,
+    overflow: "hidden",
+  },
+  // Flat Data container //
+  flexSlider:{
+    height: height / 1,
+  },
+  imgContainerPoster: {
+    position: 'absolute',
+    left: -WIDTH / 2,
+  },
+  posterImg: {
+    width: WIDTH,
+    height: HEIGHT,
+    borderRadius: width / 50,
   },
 });
