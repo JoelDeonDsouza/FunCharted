@@ -1,5 +1,5 @@
 import Header from "./Header";
-import LocationList from "./LocationList";
 import HeaderDataText from "./HeaderDataText";
+import EmptyPosts from "./EmptyPosts";
 
-export { Header, LocationList, HeaderDataText };
+export { Header,  HeaderDataText, EmptyPosts };

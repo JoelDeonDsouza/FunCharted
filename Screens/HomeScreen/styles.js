@@ -50,7 +50,6 @@ export const styles = StyleSheet.create({
   imgContainer: {
     width: 60,
     height: 60,
-    backgroundColor: "#EEEEEE",
     borderRadius: width / 1,
     justifyContent: "center",
     alignContent: "center",
@@ -103,11 +102,11 @@ export const styles = StyleSheet.create({
     overflow: "hidden",
   },
   // Flat Data container //
-  flexSlider:{
-    height: height / 1,
+  flexSlider: {
+    height: height / 1.4,
   },
   imgContainerPoster: {
-    position: 'absolute',
+    position: "absolute",
     left: -WIDTH / 2,
   },
   posterImg: {
@@ -115,4 +114,27 @@ export const styles = StyleSheet.create({
     height: HEIGHT,
     borderRadius: width / 50,
   },
+  // Empty Data container //
+  emptyContainer: {
+    marginTop: height / 7,
+    flexDirection: "column",
+  },
+  imgEmpty:{
+    width: width / 6,
+    height: width / 6,
+    alignSelf: "center",
+  },
+  emptyText:{
+    fontSize: 18,
+    color: "#000",
+    fontWeight: "700",
+    textAlign: "center",
+    fontWeight: "bold",
+    opacity: 0.5,
+  },
+  // Loader icon //
+  loaderIcon:{
+    marginTop: height / 2.4,
+    alignSelf: "center",
+  }
 });
