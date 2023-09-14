@@ -6,7 +6,7 @@ const EmptyPosts = () => {
   return (
     <View style={styles.emptyContainer}>
       <Image style={styles.imgEmpty} source={{ uri: "https://i.ibb.co/3R162gB/unhappy.png" }} />
-      <Text style={styles.emptyText}>No Posts Found</Text>
+      <Text style={styles.emptyText}>No Events Found</Text>
     </View>
   );
 };

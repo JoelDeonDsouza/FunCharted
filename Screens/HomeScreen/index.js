@@ -23,7 +23,7 @@ import {
   State,
 } from "react-native-gesture-handler";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const [location, setLocation] = useState([]);
   const [posterData, setPosterData] = useState([]);
   const [locationFilter, setLocationFilter] = useState("");
@@ -202,8 +202,8 @@ const HomeScreen = () => {
                           </View>
                         );
                       }}
-                      renderItem={({ item, index }) => {
-                        const inputRange = [index - 1, index, index + 1];
+                      renderItem={({ item, index: i }) => {
+                        const inputRange = [index - 1, index, i + 1];
                         const translateX = scrollXAnimated.interpolate({
                           inputRange,
                           outputRange: [50, 0, -100],
@@ -231,10 +231,19 @@ const HomeScreen = () => {
                               },
                             ]}
                           >
-                            <Image
-                              source={{ uri: item.picturePath }}
-                              style={styles.posterImg}
-                            />
+                            <TouchableOpacity
+                              activeOpacity={0.9}
+                              onPress={() => {
+                                navigation.navigate("SinglePostScreen", {
+                                  item: posterData[index],
+                                });
+                              }}
+                            >
+                              <Image
+                                source={{ uri: item.picturePath }}
+                                style={styles.posterImg}
+                              />
+                            </TouchableOpacity>
                           </Animated.View>
                         );
                       }}
