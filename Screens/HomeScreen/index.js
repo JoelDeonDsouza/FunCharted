@@ -8,7 +8,12 @@ import {
   TouchableOpacity,
   Text,
   ActivityIndicator,
+  StyleSheet,
+  Dimensions,
 } from "react-native";
+// Styling component //
+const { height } = Dimensions.get("screen");
+import { SharedElement } from "react-native-shared-element";
 // Components //
 import { Header, HeaderDataText, EmptyPosts } from "./Components";
 // Styles //
@@ -172,82 +177,101 @@ const HomeScreen = ({ navigation }) => {
                       }
                     }}
                   >
-                    <FlatList
-                      style={styles.flexSlider}
-                      data={posterData}
-                      keyExtractor={(_, index) => String(index)}
-                      horizontal
-                      inverted
-                      scrollEnabled={false}
-                      removeClippedSubviews={false}
-                      contentContainerStyle={{
-                        flex: 1,
-                        justifyContent: "center",
-                        padding: 10 * 2,
-                      }}
-                      CellRendererComponent={({
-                        item,
-                        index,
-                        children,
-                        style,
-                        ...props
-                      }) => {
-                        const newStyle = [
+                    <>
+                      <FlatList
+                        style={styles.flexSlider}
+                        data={posterData}
+                        keyExtractor={(item) => item._id}
+                        horizontal
+                        inverted
+                        scrollEnabled={false}
+                        removeClippedSubviews={false}
+                        contentContainerStyle={{
+                          flex: 1,
+                          justifyContent: "center",
+                          padding: 10 * 2,
+                        }}
+                        CellRendererComponent={({
+                          item,
+                          index,
+                          children,
                           style,
-                          { zIndex: posterData.length - index },
-                        ];
-                        return (
-                          <View style={newStyle} index={index} {...props}>
-                            {children}
-                          </View>
-                        );
-                      }}
-                      renderItem={({ item, index: i }) => {
-                        const inputRange = [index - 1, index, i + 1];
-                        const translateX = scrollXAnimated.interpolate({
-                          inputRange,
-                          outputRange: [50, 0, -100],
-                        });
-                        const scale = scrollXAnimated.interpolate({
-                          inputRange,
-                          outputRange: [0.8, 1, 1.3],
-                        });
-                        const opacity = scrollXAnimated.interpolate({
-                          inputRange,
-                          outputRange: [1 - 1 / 3, 1, 0],
-                        });
-                        return (
-                          <Animated.View
-                            style={[
-                              styles.imgContainerPoster,
-                              {
-                                opacity,
-                                transform: [
-                                  {
-                                    translateX,
-                                  },
-                                  { scale },
-                                ],
-                              },
-                            ]}
-                          >
-                            <TouchableOpacity
-                              activeOpacity={0.9}
-                              onPress={() => {
-                                navigation.navigate("SinglePostScreen", {
-                                  item: posterData[index],
-                                });
-                              }}
+                          ...props
+                        }) => {
+                          const newStyle = [
+                            style,
+                            { zIndex: posterData.length - index },
+                          ];
+                          return (
+                            <View style={newStyle} index={index} {...props}>
+                              {children}
+                            </View>
+                          );
+                        }}
+                        renderItem={({ item, index: i }) => {
+                          const inputRange = [index - 1, index, i + 1];
+                          const translateX = scrollXAnimated.interpolate({
+                            inputRange,
+                            outputRange: [50, 0, -100],
+                          });
+                          const scale = scrollXAnimated.interpolate({
+                            inputRange,
+                            outputRange: [0.8, 1, 1.3],
+                          });
+                          const opacity = scrollXAnimated.interpolate({
+                            inputRange,
+                            outputRange: [1 - 1 / 3, 1, 0],
+                          });
+                          return (
+                            <Animated.View
+                              style={[
+                                styles.imgContainerPoster,
+                                {
+                                  opacity,
+                                  transform: [
+                                    {
+                                      translateX,
+                                    },
+                                    { scale },
+                                  ],
+                                },
+                              ]}
                             >
-                              <Image
-                                source={{ uri: item.picturePath }}
-                                style={styles.posterImg}
-                              />
-                            </TouchableOpacity>
-                          </Animated.View>
-                        );
-                      }}
-                    />
+                              <TouchableOpacity
+                                activeOpacity={0.9}
+                                onPress={() => {
+                                  navigation.navigate("SinglePostScreen", {
+                                    item: posterData[index],
+                                  });
+                                }}
+                              >
+                                <SharedElement id={`item.${item._id}.image`}>
+                                  <Image
+                                    source={{ uri: item.picturePath }}
+                                    style={styles.posterImg}
+                                  />
+                                </SharedElement>
+                              </TouchableOpacity>
+                            </Animated.View>
+                          );
+                        }}
+                      />
+                      <SharedElement
+                        id="display.poster"
+                        style={[
+                          StyleSheet.absoluteFillObject,
+                          { transform: [{ translateY: height }] },
+                        ]}
+                      >
+                        <View
+                          style={[
+                            StyleSheet.absoluteFillObject,
+                            { transform: [{ translateY: height }] },
+                            styles.bottomFlowAnimation,
+                          ]}
+                        />
+                      </SharedElement>
+                    </>
                   </FlingGestureHandler>
                 </FlingGestureHandler>
               </>

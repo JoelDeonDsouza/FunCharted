@@ -119,12 +119,12 @@ export const styles = StyleSheet.create({
     marginTop: height / 7,
     flexDirection: "column",
   },
-  imgEmpty:{
+  imgEmpty: {
     width: width / 6,
     height: width / 6,
     alignSelf: "center",
   },
-  emptyText:{
+  emptyText: {
     fontSize: 18,
     color: "#000",
     fontWeight: "700",
@@ -133,8 +133,13 @@ export const styles = StyleSheet.create({
     opacity: 0.5,
   },
   // Loader icon //
-  loaderIcon:{
+  loaderIcon: {
     marginTop: height / 2.4,
     alignSelf: "center",
-  }
+  },
+  // Flow control container //
+  bottomFlowAnimation: {
+    backgroundColor: "#eee",
+    borderRadius: width / 30,
+  },
 });

@@ -24,7 +24,6 @@ export const styles = StyleSheet.create({
   // Details //
   detailsContainer: {
     backgroundColor: "#eee",
-    top: height * 0.7,
     padding: 10 * 2,
     borderRadius: width / 30,
   },

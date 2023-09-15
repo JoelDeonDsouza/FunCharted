@@ -22,6 +22,7 @@
     "react-dom": "18.2.0",
     "react-native": "0.72.4",
     "react-native-gesture-handler": "^2.12.1",
+    "react-native-shared-element": "^0.8.8",
     "react-native-vector-icons": "^10.0.0",
     "react-native-web": "~0.19.6"
   },
