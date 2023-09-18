@@ -1,10 +1,20 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, ScrollView } from "react-native";
+import UserDetails from "./Components/UserDetails";
+// Styles //
+import { styles } from "./styles";
 
 const ProfileScreen = () => {
   return (
-    <View>
-      <Text>ProfileScreen</Text>
+    <View style={styles.userContainer}>
+      <ScrollView
+        contentContainerStyle={{
+          paddingHorizontal: 15,
+          paddingBottom: 150,
+        }}
+      >
+        <UserDetails />
+      </ScrollView>
     </View>
   );
 };
